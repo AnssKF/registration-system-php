@@ -20,17 +20,30 @@ require_once './config.php';
 
     <?php
 
-        $v = isset($_GET['v']) ? $_GET['v'] : 'home';
+        $v = isset($_GET['v']) ? $_GET['v'] : 'member';
 
-        if($v=='test'):
+        if($v=='signup'):
+
+            (new MemberController())->signup();
+
+        elseif($v=='login'):
+
+            (new MemberController())->login();
+
+        elseif($v=='update'):
+
+            (new MemberController())->update();
+
+        elseif($v=='logout'):
+
+            (new MemberController())->logout();
+
         else:
             /**
-             *  HOME
+             *  member
              */
-            (new HomeController())->index();
+            header('Location:./index.php');
         endif;
-
-
     ?>
 
 

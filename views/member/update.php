@@ -5,15 +5,15 @@
             
             <div class="card-body">
                 
-                <h1 class="card-title">Signup</h1>
+                <h1 class="card-title">Update Profile</h1>
             
                 <?php
-                    if( isset($_SESSION['loggedInUser']) ):
+                    if( !isset($_SESSION['loggedInUser']) ):
                 ?>
 
                     <div class="alert alert-info text-center">
-                        <p>You need to Logout first</p>
-                        <p> <a href="?v=logout">Logout</a> </p>
+                        <p>You need to Login first</p>
+                        <p> <a href="?v=login">Login</a> </p>
                     </div>
 
                 <?php
@@ -23,26 +23,26 @@
                     <form method="POST" enctype="multipart/form-data">
                         <div class="form-group">
                             <label>name</label>
-                            <input type="text" name="name" class="form-control">
+                            <input type="text" name="name" class="form-control" value="<?= $_SESSION['loggedInUser']->name ?>">
                             
                             <?php showSessionMessage('ERR_EMPTY_NAME', '<h6 class="alert alert-danger my-1">Name Can\'t Be Empty</h6>'); ?>
 
                         </div>
                         <div class="form-group">
                             <label>E-mail</label>
-                            <input type="text" name="email" class="form-control">
+                            <input type="text" name="email" class="form-control" value="<?= $_SESSION['loggedInUser']->email ?>">
                             
-                            <?php showSessionMessage('ERR_SIGNUP_EMAIL_EXIST', '<h6 class="alert alert-danger my-1">This Email Exists Before</h6>'); ?>
+                            <?php showSessionMessage('ERR_UPDATE_EMAIL_EXIST', '<h6 class="alert alert-danger my-1">This Email Exists Before</h6>'); ?>
                             <?php showSessionMessage('ERR_EMPTY_EMAIL', '<h6 class="alert alert-danger my-1">Email Can\'t Be Empty</h6>'); ?>
                             
                         </div>
                         <div class="form-group">
                             <label>Password</label>
-                            <input type="password" name="password1" class="form-control mb-1">
+                            <input type="password" name="password1" class="form-control mb-1" placeholder="leave empty to unchange">
                             <label>ReEnter Your Password</label>
                             <input type="password" name="password2" class="form-control">
 
-                            <?php showSessionMessage('ERR_SIGNUP_PASSWORD_ERR', '<h6 class="alert alert-danger my-1">Please Check Your Passwords</h6>'); ?>
+                            <?php showSessionMessage('ERR_UPDATE_PASSWORD_ERR', '<h6 class="alert alert-danger my-1">Please Check Your Passwords</h6>'); ?>
 
                         </div>
                         <div class="form-group">
@@ -51,7 +51,7 @@
                             <?php showSessionMessage('ERR_INVALID_IMAGE', '<h6 class="alert alert-danger my-1">Invalid Image -- Should be less than 2MB & in jpeg/jpg/png Format</h6>'); ?>
                         </div>
                         <div class="form-group">
-                            <input type="submit" name="signup" value="Submit" class="btn btn-block btn-outline-info">
+                            <input type="submit" name="update" value="Submit" class="btn btn-block btn-outline-info">
                         </div>
                     </form>
 
@@ -61,12 +61,9 @@
 
                     <div class="w-100">
                         <p class="text-muted">
-                            <a href="./index.php" class="text-muted">Home</a>
-                            or
-                            <a href="./member.php?v=login" class="text-muted">Login</a>
+                            <a href="./index.php" class="text-muted">return Home</a>
                         </p>
                     </div>
-
             </div>
         </div>
     </div>
