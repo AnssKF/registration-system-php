@@ -99,7 +99,7 @@ class MemberController {
                 }
 
             }else {
-                $_SESSION['ERR_LOGIN_EXIST_BEFORE'] = true;
+                $_SESSION['ERR_LOGIN_NOT_EXIST_BEFORE'] = true;
             }
 
         }

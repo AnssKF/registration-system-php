@@ -25,7 +25,7 @@
                             <input type="text" name="email" class="form-control">
                             
                             <?php showSessionMessage('ERR_EMPTY_EMAIL', '<h6 class="alert alert-danger my-1">Email Can\'t Be Empty</h6>'); ?>
-                            <?php showSessionMessage('ERR_LOGIN_EXIST_BEFORE', '<h6 class="alert alert-danger my-1">Email Exist Before</h6>'); ?>
+                            <?php showSessionMessage('ERR_LOGIN_NOT_EXIST_BEFORE', '<h6 class="alert alert-danger my-1">Email Does Not Exist Before</h6>'); ?>
                             
                         </div>
                         <div class="form-group">
